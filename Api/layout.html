@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>thinkjs文档</title>
+  <link href="/static/css/base.css" rel="stylesheet">
+  <link href="/static/module/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="/static/module/highlight/styles/github.css" rel="stylesheet">
+  <script src="/static/module/jquery/1.9.1/jquery.js"></script>
+  <script src="/static/module/bootstrap/js/bootstrap.js"></script>
+  <script src="/static/module/highlight/highlight.pack.js"></script>
+  <style>
+  html,body{height: 100%;}
+  body{background-color: #f5f5f5;}
+  .container{width:98%;min-width: 960px;height: 100%}
+  p{font-size: 16px}
+  nav.sidebar{
+    position: fixed;
+    width: 240px;
+    top: 70px;
+    bottom: 0;
+    overflow: auto;
+  }
+  .content{
+    margin-left: 240px;
+    background-color: #fff;
+    margin-top: -24px;
+    padding: 20px;
+    min-height: 100%;
+  }
+  .doc-content{
+    width: 60%;
+    min-width: 700px;
+    position: relative;
+  }
+  #docToc{
+    position: fixed;
+    display: none;
+    top: 70px;
+    padding-left: 20px;
+    width: 217px;
+    bottom: 0;
+    overflow: auto;
+  }
+  .doc-content h3::before,
+  .doc-content h4::before,
+  .doc-content h5::before {
+      display: block;
+      content: "";
+      height: 60px;
+      margin: -60px 0 0;
+  }
+  .doc-content h4{
+    margin-top: 20px;
+  }
+  .doc-content h5{
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  .doc-content h2{
+    margin-top: 0;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  </style>
+  </head>
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top" style="background:#fff;" role="navigation">
+    <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" style="padding:5px;">
+        <img src="/static/img/logo-gray.png" alt="">
+      </a>
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="/">首页</a></li>
+        <li><a href="/doc.html">使用文档</a></li>
+        <li class="active"><a href="/api.html">API</a></li>
+        <li><a href="/project.html">使用案例</a></li>
+        <li><a href="http://www.w3ctech.com/category/10">社区</a></li>
+        </ul>
+        </div>
+    </div>
+  </div>
+  <div class="container" style="padding-top:70px;">
+    <nav class="sidebar">
+      <ul>
+        <li><a href="/api.html">介绍</a></li>
+        <li><a href="/api/native.html">原生对象的扩展</a></li>
+        <li><a href="/api/global.html">全局函数</a></li>
+        <li><a href="/api/controller.html">Controller</a></li>
+        <li><a href="/api/model.html">Model</a></li>
+      </ul>
+    </nav>
+    <div class="content">
+    <div class="doc-content">
+      <!--!doc-content-->
+
+      <div id="docToc"><!--!toc-content--></div>
+
+      <!-- 多说评论框 start -->
+      <div class="ds-thread"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"thinkjs"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+    </div>
+    </div>
+  </div>
+<script >hljs.initHighlightingOnLoad();</script>
+<script>$(function(){
+  var width = $('.doc-content').width();
+  $('#docToc').css('left', width + 280).show();
+})</script>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F1bb90f69156081a47c0ac82de9a02a34' type='text/javascript'%3E%3C/script%3E"));
+</script>

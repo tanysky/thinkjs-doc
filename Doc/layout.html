@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>thinkjs文档</title>
+	<link href="/static/css/base.css" rel="stylesheet">
+	<link href="/static/module/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="/static/module/highlight/styles/github.css" rel="stylesheet">
+	<script src="/static/module/jquery/1.9.1/jquery.js"></script>
+	<script src="/static/module/bootstrap/js/bootstrap.js"></script>
+	<script src="/static/module/highlight/highlight.pack.js"></script>
+	<style>
+	html,body{height: 100%;}
+	body{background-color: #f5f5f5;}
+	.container{width:98%;min-width: 960px;height: 100%}
+	p{font-size: 16px}
+	nav.sidebar{
+		position: fixed;
+		width: 240px;
+		top: 70px;
+		bottom: 0;
+		overflow: auto;
+	}
+	.content{
+		margin-left: 240px;
+		background-color: #fff;
+		margin-top: -24px;
+		padding: 20px;
+		min-height: 100%;
+	}
+	.doc-content{
+		width: 60%;
+		min-width: 700px;
+		position: relative;
+	}
+	#docToc{
+		position: fixed;
+		display: none;
+		top: 70px;
+		padding-left: 20px;
+		width: 217px;
+		bottom: 0;
+		overflow: auto;
+	}
+	.doc-content h3::before,
+	.doc-content h4::before,
+	.doc-content h5::before {
+	    display: block;
+	    content: "";
+	    height: 60px;
+	    margin: -60px 0 0;
+	}
+	.doc-content h4{
+		margin-top: 20px;
+	}
+	.doc-content h5{
+		font-size: 16px;
+		margin-top: 20px;
+	}
+	.doc-content h2{
+		margin-top: 0;
+		border-bottom: 1px solid #ddd;
+		padding-bottom: 10px;
+		margin-bottom: 20px;
+	}
+	</style>
+  </head>
+  <body>
+  	<div class="navbar navbar-default navbar-fixed-top" style="background:#fff;" role="navigation">
+	  <div class="container">
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </button>
+		  <a class="navbar-brand" href="/" style="padding:5px;">
+		  	<img src="/static/img/logo-gray.png" alt="">
+		  </a>
+		</div>
+		<div class="navbar-collapse collapse">
+		    <ul class="nav navbar-nav navbar-right">
+				<li><a href="/">首页</a></li>
+				<li class="active"><a href="/doc.html">使用文档</a></li>
+				<li><a href="/api.html">API</a></li>
+				<li><a href="/project.html">使用案例</a></li>
+				<li><a href="http://www.w3ctech.com/category/10">社区</a></li>
+		  	</ul>
+        </div>
+	  </div>
+	</div>
+	<div class="container" style="padding-top:70px;">
+		<nav class="sidebar">
+			<ul>
+				<li><a href="/doc.html">介绍</a></li>
+				<li><a href="/doc/start.html">快速入门</a>
+					<ul>
+						<li><a href="/doc/start.html#安装thinkjs">安装thinkjs</a></li>
+						<li><a href="/doc/start.html#设置环境变量">设置环境变量</a></li>
+						<li><a href="/doc/start.html#新建项目">新建项目</a></li>
+						<li><a href="/doc/start.html#手动启动项目">手动启动服务</a></li>
+						<li><a href="/doc/start.html#项目结构说明">项目结构</a></li>
+						<li><a href="/doc/start.html#文件说明">文件说明</a></li>
+					</ul>
+				</li>
+				<li><a href="/doc/config.html">配置</a>
+					<ul>
+						<li><a href="/doc/config.html#配置格式">配置格式</a></li>
+						<li><a href="/doc/config.html#配置加载">配置加载</a></li>
+						<li><a href="/doc/config.html#配置读取">配置读取</a></li>
+						<li><a href="/doc/config.html#配置写入">配置写入</a></li>
+						<li><a href="/doc/config.html#扩展配置">扩展配置</a></li>
+					</ul>
+				</li>
+				<li><a href="/doc/arch.html">架构</a>
+					<ul>
+						<li><a href="/doc/arch.html#模块化设计">模块化设计</a></li>
+						<li><a href="/doc/arch.html#CBD模式">CBD模式</a></li>
+						<li><a href="/doc/arch.html#自动加载">自动加载</a></li>
+						<li><a href="/doc/arch.html#系统流程">系统流程</a></li>
+					</ul>
+				</li>
+				<li><a href="/doc/route.html">路由</a>
+					<ul>
+						<li><a href="/doc/route.html#url过滤">url过滤</a></li>
+						<li><a href="/doc/route.html#路由识别">路由识别</a></li>
+						<li><a href="/doc/route.html#自定义路由">自定义路由</a></li>
+					</ul>
+				</li>
+				<li><a href="/doc/controller.html">控制器</a>
+				<ul>
+					<li><a href="/doc/controller.html#定义控制器">定义控制器</a></li>
+					<li><a href="/doc/controller.html#初始化方法">初始化方法</a></li>
+					<li><a href="/doc/controller.html#前置和后置操作">前置和后置操作</a></li>
+					<li><a href="/doc/controller.html#Action参数自动绑定">Action参数自动绑定</a></li>
+					<li><a href="/doc/controller.html#空操作">空操作</a></li>
+					<li><a href="/doc/controller.html#空控制器">空控制器</a></li>
+					<li><a href="/doc/controller.html#常用方法">常用方法</a></li>
+				</ul>
+				</li>
+				<li><a href="/doc/model.html">模型</a>
+					<ul>
+						<li><a href="/doc/model.html#模型定义">模型定义</a></li>
+						<li><a href="/doc/model.html#数据表定义">数据表定义</a></li>
+						<li><a href="/doc/model.html#模型实例化">模型实例化</a></li>
+						<li><a href="/doc/model.html#数据库">数据库</a></li>
+						<li><a href="/doc/model.html#链式调用">链式调用</a></li>
+						<li><a href="/doc/model.html#curd操作">CURD操作</a></li>
+						<li><a href="/doc/model.html#高级模型">高级模型</a></li>
+					</ul>
+				</li>
+				<li><a href="/doc/view.html">视图/模版</a></li>
+				<li><a href="/doc/debug.html">调试</a></li>
+				<li><a>高级功能</a>
+					<ul>
+						<li><a href="/doc/cache.html">缓存</a></li>
+						<li><a href="/doc/session.html">Session</a></li>
+						<li><a href="/doc/websocket.html">WebSocket</a></li>
+						<li><a href="/doc/data_filter.html">变量过滤器</a></li>
+						<li><a href="/doc/data_valid.html">数据校验</a></li>
+						<li><a href="/doc/cli.html">命令行模式</a></li>
+						<li><a href="/doc/restful.html">Restful</a></li>
+						<!-- <li><a href="/doc/advanced_other.html">其他</a></li> -->
+					</ul>
+				</li>
+				<!-- <li><a href="/doc/extend.html">扩展</a> -->
+				</li>
+				<li><a>API</a>
+					<ul>
+						<li><a href="/doc/api_native.html">原生对象的扩展</a></li>
+						<li><a href="/doc/api_global.html">全局函数</a></li>
+						<li><a href="/doc/api_controller.html">Controller</a></li>
+						<li><a href="/doc/api_model.html">Model</a></li>
+					</ul>
+				</li>
+				<li><a href="/doc/standard.html">指导规范</a></li>
+				<li><a href="/doc/practice.html">最佳实践</a></li>
+				<li><a href="/doc/appendix.html">附录</a>
+					<ul>
+						<li><a href="/doc/appendix.html#默认配置">系统所有配置</a></li>
+						<li><a href="/doc/appendix.html#路径常量">路径常量</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+		<div class="content">
+		<div class="doc-content">
+			<!--!doc-content-->
+
+			<div id="docToc"><!--!toc-content--></div>
+
+			<!-- 多说评论框 start -->
+			<div class="ds-thread"></div>
+		<!-- 多说评论框 end -->
+		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+		<script type="text/javascript">
+		var duoshuoQuery = {short_name:"thinkjs"};
+			(function() {
+				var ds = document.createElement('script');
+				ds.type = 'text/javascript';ds.async = true;
+				ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+				ds.charset = 'UTF-8';
+				(document.getElementsByTagName('head')[0] 
+				 || document.getElementsByTagName('body')[0]).appendChild(ds);
+			})();
+			</script>
+		<!-- 多说公共JS代码 end -->
+		</div>
+		</div>
+	</div>
+<script >hljs.initHighlightingOnLoad();</script>
+<script>$(function(){
+	var width = $('.doc-content').width();
+	$('#docToc').css('left', width + 280).show();
+})</script>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F1bb90f69156081a47c0ac82de9a02a34' type='text/javascript'%3E%3C/script%3E"));
+</script>
