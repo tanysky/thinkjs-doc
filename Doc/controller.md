@@ -45,7 +45,7 @@ module.exports = Controller("Home/BaseController", function(){
 
 js本身并没有在一个类实例化时自动调用某个方法，但thinkjs实现一套自动调用的机制。自动调用的方法名为`init`，如果类有init方法，那么这个类在实例化时会自动调用init方法。
 
-为实现init方法调用的机制，thinkjs里所有的类都是通过 [Class](/doc/api_global.html#class) 函数创建。
+为实现init方法调用的机制，thinkjs里所有的类都是通过 [Class](/api/global.html#class) 函数创建。
 
 如果控制器里要重写init方法，那么必须调用父类的init方法，如：
 ```js
@@ -187,7 +187,7 @@ call_controller: "Home:Index:_404"
 
 ### 常用方法
 
-这里列举一些常用的方法，详细的可以去 [Api](/doc/api_controller.html) 文档里查看。
+这里列举一些常用的方法，详细的可以去 [Api](/api/controller.html) 文档里查看。
 
 * `get(key)` 获取get参数值
 * `post(key)` 获取post参数值

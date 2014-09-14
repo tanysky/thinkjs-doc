@@ -159,7 +159,7 @@ var promise = D('User').where({name: 'welefen'}).field('sex,date').find().then(f
 * `distinct`, 用于对查询的distinct支持
 * `cache` 用于查询缓存
 
-对于每个方法的具体使用请见 [API](/doc/api_model.html)里的详细文档。
+对于每个方法的具体使用请见 [API](/api/model.html)里的详细文档。
 
 ### CURD操作
 
@@ -285,4 +285,4 @@ D('Article').page(this.get("page"), 20).countSelect().then(function(data){
 //countSelect(false) 修正到最后一页
 ```
 
-关于模型接口的详细使用说明请见 [API - Model](/doc/api_model.html) 。
+关于模型接口的详细使用说明请见 [API - Model](/api/model.html) 。
