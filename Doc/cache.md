@@ -17,12 +17,54 @@ cache_file_suffix: ".json", //File缓存方式下文件后缀名
 cache_gc_hour: [4], //缓存清除的时间点，数据为小时
 ```
 
-默认使用文件作为缓存类型，`cache_type`为空表示内存缓存，为`memcache`表示Memcache缓存。使用Memcache缓存还需要配置如下的参数：
+#### 缓存类型
+
+##### 内存缓存
+
+使用Node.js的内存来缓存，如果使用cluster最好不要使用该方式。
+
+```
+cache_type: "", //cache_type为空
+```
+
+##### 文件缓存
+
+基于文件的缓存
+
+```
+cache_type: "File", //cache_type为File
+```
+
+##### Memcache缓存
+
+使用Memache来缓存
+
+```
+cache_type: 'Memcache', //cache_type为Memcache
+```
+
+使用Memache来缓存需要追加如下的配置：
 
 ```js
 //memcache缓存
 memcache_host: "127.0.0.1", //memcache host
 memcache_port: 11211, //memecache端口
+```
+
+##### Redis缓存
+
+使用Redis来缓存
+
+```
+cache_type: 'Redis', //cache_type为Redis
+```
+
+使用Redis来缓存需要追加如下的配置：
+
+```js
+//redis缓存
+redis_host: "127.0.0.1", //redis host
+redis_port: 6379, //redis端口
 ```
 
 #### 缓存读写
