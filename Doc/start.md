@@ -10,7 +10,7 @@ thinkjs需要Node.js的版本`>=0.10.x`，可以通过`node -v`命令查看当�
 安装thinkjs非常简单，通过如下的命令即可安装：
 
 ```shell
-sudo npm install -g thinkjs
+sudo npm install -g thinkjs-cmd
 ```
 
 如果安装失败，可能是npm服务异常或者是被墙了，可以使用国内的 [cnpm](http://cnpmjs.org/) 服务进行安装。如：
@@ -24,30 +24,6 @@ sudo npm install -g thinkjs --registry=http://r.cnpmjs.org
 ```js
 thinkjs -v
 ```
-
-### 设置环境变量
-
-由于thinkjs是以global模式安装的，如果直接`require("thinkjs")`可能会报thinkjs模块找不到的错误，这时候需要设置Node.js的环境变量。
-
-#### Mac或者Linux
-
-编辑`~/.bashrc`文件，添加`export NODE_PATH="/usr/local/node/lib/node_modules"`，NODE_PATH的值可能因不同的系统不太一样，需要查看node具体装在什么位置。
-
-添加完成后，执行下面的命令让配置生效：
-
-```shell
-source ~/.bashrc
-```
-
-#### Windows
-
-右击”我的电脑“-”属性“-”高级“-”环境变量“  新建系统变量，变量名：`NODE_PATH`；变量值：`C:\Documents and Settings\Administrator\node_modules`（这里根据自己node_modules所在位置填写）
-
-设置完成后，需要将cmd窗口重新打开。
-
-<div class="alert alert-info">
-    如果设置环境变量不成功，还有一种简单的办法就是把thinkjs在和项目平行的位置再安装下。如：`npm install thinkjs`
-</div>
 
 ### 新建项目
 
