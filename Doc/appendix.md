@@ -1,8 +1,8 @@
 ## 附录
 
 ### 默认配置
-```js
-/**
+```
+ /**
  * 框架默认配置
  * 可以在App/Conf/config.js里修改下面的配置值
  * @type {Object}
@@ -20,10 +20,12 @@ module.exports = {
 
   post_json_content_type: ['application/json'], //post数据为json时的content-type
   post_max_file_size: 1024 * 1024 * 1024, //上传文件大小限制，默认1G
-  post_max_fields: 1000, //最大表单数
-  post_max_fields_size: 2 * 1024, //单个表单最大值
+  post_max_fields: 100, //最大表单数，默认为100
+  post_max_fields_size: 2 * 1024 * 1024, //单个表单长度最大值，默认为2MB
+  post_ajax_filename_header: 'x-filename', //通过ajax上传文件时文件名对应的header，如果有这个header表示是文件上传
   
-  app_group_list: ['Home', 'Admin'], //分组列表
+  app_group_list: ['Home', 'Admin', 'Restful'], //分组列表
+  deny_group_list: [],
   default_group: 'Home', //默认分组
   default_controller: 'Index', //默认模块
   default_action: 'index',  //默认Action
@@ -40,6 +42,8 @@ module.exports = {
   use_cluster: false, //是否使用cluster，默认不使用，0：为cpu的数量，可以自定义值
   autoload_path: {}, //autoload查找的path，用于thinkRequire加载自定义库的时候查找
   create_server_fn: '', //自定义create server全局函数名，可以在Common/common.js里实现
+
+  restful_group: 'Restful', //RESTFUL API默认分组
 
   load_ext_config: [], //加载额外的配置文件 CONF_PATH
   load_ext_file: [], //加载额外的文件 COMMON_PATH
@@ -63,24 +67,27 @@ module.exports = {
   session_path: '', //File类型下文件存储位置，默认为系统的tmp目录
   session_options: {}, //session对应的cookie选项
   session_sign: '', //session对应的cookie使用签名
-  session_timeout: 24 * 3600, //session失效时间，单位：秒
+  session_timeout: 24 * 3600, //服务器上session失效时间，单位：秒
 
   db_type: 'mysql', // 数据库类型
-  db_host: 'localhost', // 服务器地址
+  db_host: '127.0.0.1', // 服务器地址
   db_port: '', // 端口
   db_name: '', // 数据库名
   db_user: 'root', // 用户名
   db_pwd: '', // 密码
   db_prefix: 'think_', // 数据库表前缀
+  db_charset: 'utf8', // 数据库编码默认采用utf8
+  db_ext_config: {}, //数据库连接时候额外的参数
   db_fieldtype_check: false, // 是否进行字段类型检查
   db_fields_cache: true, // 启用字段缓存
-  db_charset: 'utf8', // 数据库编码默认采用utf8
   db_nums_per_page: 20, //默认每页显示的条数
-  db_like_fields: [], //自动进行模糊查询，如: ['title', 'content']
+  db_like_fields: [], //自动进行模糊查询,|连接，如: ['title', 'content']
   db_cache_on: true, //是否启用查询缓存，如果关闭那么cache方法则无效
   db_cache_type: '', //缓存类型，默认为内存缓存
   db_cache_path: CACHE_PATH + '/db', //缓存路径，File类型下有效
   db_cache_timeout: 3600, //缓存时间，默认为1个小时
+  db_log_sql: false, //是否打印sql语句
+  db_buffer_tostring: true, //是否将buffer转为字符串
 
   tpl_content_type: 'text/html', //模版输出类型
   tpl_file_suffix: '.html', //模版文件名后缀
@@ -88,7 +95,19 @@ module.exports = {
   tpl_engine_type: 'ejs', //模版引擎名称
   tpl_engine_config: {}, 
 
+  token_on: false, //是否开启token功能
+  token_name: 'token', //token name
+  token_key: '{__TOKEN__}', //记录token在模版中的位置替换用。默认自动查找<form和</head>标签替换
+
+  log_console: false, //是否记录日志，开启后会重写console.error等系列方法
+  log_console_path: LOG_PATH + '/console', //日志文件存放路径
+  log_console_type: ['error'], //默认只接管console.error日志
+  log_memory: false, //记录内存使用和负载
+  log_memory_path: LOG_PATH + '/memory', //日志文件存放路径
+  log_memory_interval: 60 * 1000, //一分钟记录一次
+
   cache_type: 'File', //数据缓存类型
+  cache_key_prefix: '__thinkjs__', //缓存key前置(memcache和redis下有效)
   cache_timeout: 6 * 3600, //数据缓存有效期，单位: 秒
   cache_path: CACHE_PATH,  //缓存路径设置 (File缓存方式有效)
   cache_file_suffix: '.json', //File缓存方式下文件后缀名
@@ -103,6 +122,9 @@ module.exports = {
 
   memcache_host: '127.0.0.1', //memcache host
   memcache_port: 11211, //memecache端口
+
+  redis_host: '127.0.0.1', //redis host
+  redis_port: 6379, // redis port
 };
 ```
 
