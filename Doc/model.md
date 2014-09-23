@@ -1,5 +1,9 @@
 ## 模型
 
+<div class="alert alert-info">
+    thinkjs现在只对`mysql`做了封装，如果现在需要使用其他的数据库，可以直接require对应的模块。如：mongodb可以用`mongoose`模块。
+</div>
+
 在thinkjs中基础的模型类就是`Model`类，该类完成了基本的增删改查、连贯操作和统计查询，同时还有thenadd, countSelect等功能，更高级的功能封装在另外的模型扩展中。
 
 ### 模型定义
@@ -93,7 +97,7 @@ var model = D('User');
 
 #### 数据库支持
 
-thinkjs目前还只支持`mysql`数据库，后续会支持更多的数据，你也可以在扩展实现其他的数据库。
+thinkjs目前还只支持`mysql`数据库，后续会支持更多的数据库。
 
 #### 数据库连接
 
