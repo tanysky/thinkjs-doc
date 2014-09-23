@@ -461,21 +461,21 @@ testAction: function(){
 }
 ```
 
-### download(file, contentType, callback)
+### download(file, contentType, filename)
 
 下载文件。
 
 * `file` 要下载的文件路径
 * `contentType` 要发送的`Content-Type`,如果没传，自动从文件扩展名里获取
-* `callback` 下载完成后的回调
+* `filename` 下载的文件名
+* `return` 返回一个promise
 
 ```js
 testAction: function(){
     var file = "/home/welefen/a.txt";
-    this.download(file, function(){
-        //下载完成
-        //将下载次数+1
-    })
+    this.download(file, 'text/html', '1.txt').then(function(){
+        //下载完成后可以在这里进行一些操作，如：将下载次数+1
+    });
 }
 ```
 
